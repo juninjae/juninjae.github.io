@@ -1,11 +1,5 @@
-<div align="center">
-  <h1>portfolYOU</h1>
-  <i>A beautiful portfolio Jekyll theme that works with GitHub Pages.</i>
+<h1 align="center">Personal Website</h1>
 
-  <a href="https://yousinix.github.io/portfolYOU/">Live Demo</a>
-  •
-  <a href="https://yousinix.github.io/portfolYOU/docs/">Documentation</a>
-
-  <a href="https://yousinix.github.io/portfolYOU"><img src="screenshot.gif"></a>
-  <sub><sup>© 2024 portfolYOU, licensed under the <a href="./LICENSE">MIT License</a>.</sup></sub>
-</div>
+- Live website at https://saehuihwang.github.io/.
+- Made with [jekyll](https://jekyllrb.com/) and ([my fork of](https://github.com/saehuihwang/portfolYOU)) [portfoYOU](https://github.com/YoussefRaafatNasry/portfolYOU).
+- To run locally use `bundle exec jekyll serve --livereload` or `jekyll serve --livereload`.

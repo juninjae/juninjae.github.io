@@ -1,21 +1,112 @@
 <div class="wow animated fadeIn" data-wow-delay=".15s">
-  <a href="{{ project_url }}" class="project card text-themed" {%- if external and site.open_new_tab -%} target="_blank" {%- endif -%}>
+  {% if project_type == "publication" %}
+  <a
+    href="{{ project_url }}"
+    class="project card text-themed"
+    {%-
+    if
+    external
+    and
+    site.open_new_tab
+    -%}
+    target="_blank"
+    {%-
+    endif
+    -%}
+  >
     {%- if project_img -%}
-    <img id="{{ project_id }}-img" class="card-img-top" src="{{ project_img }}" alt="{{ project_name }}" />
+    <img
+      id="{{ project_id }}-img"
+      class="card-img-top"
+      src="{{ project_img }}"
+      alt="{{ project_name }}"
+    />
+    {%- endif -%}
+    <div class="card-body">
+      <p id="{{pub_id}}-year" class="card-text">
+        <span class="badge badge-pill text-primary border border-primary ml-1"
+          >{{year}}</span
+        >
+      </p>
+      <h6 id="{{ pub_id }}-name" class="card-title">
+        <p style="font-weight: 600; text-align: left">{{ title }}</p>
+      </h6>
+      <p id="{{ pub_id }}-desc" class="card-text" , style="font-size: 10pt">
+        {% for auth in authors %} {% if auth == authors.last %} {% if auth !=
+        authors.first %}{% endif %} {% if auth contains "Saehui Hwang"
+        %}<b>{{auth}}</b>{% else %}{{auth}}{% endif %} {% else %} {% if auth
+        contains "Saehui Hwang" %}<b>{{auth}}</b>,{% if authors.length > 2 %},{%
+        endif %}{% else %}{{auth}},{% if authors.length > 2 %},{% endif %} {%
+        endif %} {% endif %} {% endfor %}
+      </p>
+      <p id="{{pub_id}}-info" class="card-text"></p>
+      {% if status == 'under review' or status == 'in revision' %}
+      <span class="badge badge-pill text-danger border border-danger ml-1">
+        {{status}}
+      </span>
+      {% endif %} {% if journal contains 'xiv' %}
+      <span class="badge badge-pill text-primary border border-primary ml-1">
+        preprint available on {{journal}}</span
+      >
+      {% else %}
+
+      <span class="badge badge-pill text-success border border-success ml-1">
+        Published in {{journal}}</span
+      >
+      {% endif %} {% if doi %}
+
+      <span
+        class="badge badge-pill text-secondary border border-secondary ml-1"
+      >
+        DOI: {{doi}}</span
+      >
+      {% endif %}
+    </div>
+  </a>
+  {% else %}
+  <a
+    href="{{ project_url }}"
+    class="project card text-themed"
+    {%-
+    if
+    external
+    and
+    site.open_new_tab
+    -%}
+    target="_blank"
+    {%-
+    endif
+    -%}
+  >
+    {%- if project_img -%}
+    <img
+      id="{{ project_id }}-img"
+      class="card-img-top"
+      src="{{ project_img }}"
+      alt="{{ project_name }}"
+    />
     {%- endif -%}
     <div class="card-body">
       <h5 id="{{ project_id }}-name" class="card-title">
-          {%- if project_type == "remote" -%}
-          <i class="fab fa-github" data-toggle="tooltip" data-placement="bottom" data-delay="250" title="GitHub Repository"></i> |&nbsp;
-          {%- endif -%}
-        {{ project_name }}
+        {%- if project_type == "remote" -%}
+        <i
+          class="fab fa-github"
+          data-toggle="tooltip"
+          data-placement="bottom"
+          data-delay="250"
+          title="GitHub Repository"
+        ></i>
+        |&nbsp; {%- endif -%} {{ project_name }}
       </h5>
       <p id="{{ project_id }}-desc" class="card-text">{{ project_desc }}</p>
       <p id="{{ project_id }}-tools" class="card-text">
         {%- for tool in project_tools -%}
-        <span class="badge badge-pill text-primary border border-primary ml-1">{{ tool }}</span>
+        <span class="badge badge-pill text-primary border border-primary ml-1"
+          >{{ tool }}</span
+        >
         {%- endfor -%}
       </p>
     </div>
   </a>
+  {% endif %}
 </div>
