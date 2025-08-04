@@ -1,7 +1,7 @@
 ### Site Settings ###
 title: Injae Jun
 description: >-
-  Hi! I'm Jun :wave:  
+  Hi! I'm Injae :wave:  
 baseurl: "" # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
 repository: juninjae/juninjae.github.io # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
 remote_theme: YoussefRaafatNasry/portfolYOU
@@ -25,7 +25,7 @@ nav_exclude: # The following paths are excluded from navbar
 ### Author Info ###
 author:
   name: Injae Jun
-  image: assets/images/laughing0.png
+  image: assets/images/laughing0.JPG
   email: jij0529@snu.ac.kr
   github: juninjae
   linkedin: https://www.linkedin.com/in/injae-jun-ab2b24357/
@@ -50,9 +50,9 @@ collections:
 
 ### Analytics ###
 analytics:
-  enabled: false # Set true to enable analytics
+  enabled: true # Set true to enable analytics
   google:
-    tracking_id: your-google-tracking-id
+    tracking_id: G-6710DYM72G
 
 # ### Buy me a coffee ###
 # # See https://www.buymeacoffee.com/
