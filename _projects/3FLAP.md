@@ -1,8 +1,8 @@
 ---
-name: Augmented Reality based Memory Tool
-tools: [Unity]
-image: /assets/images/FLAP-16-9-min.png
-description: We live, think, and remember in a 3D world – so why are we still using a 2D surface to store, collect, and sort our thoughts? 
+name: Balance Carrier
+tools: [Arduino, CAD, Control]
+image: /assets/images/balance carrier.png
+description: A Carrier that shifts the COM to assist the user and free him of wrist pain 
 ---
 # 2024 Immerse the Bay Hackathon - Stanford
 
