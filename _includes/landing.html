@@ -13,7 +13,7 @@
     <h1 class="display-5 fw-bold lh-1 mb-3">Injae Jun</h1>
     <p class="text-muted wow animated fadeIn" data-wow-delay=".25s">
       I'm a Student in Mechanical Engineering at Seoul National University, focusing on Soft Robotics, Wearable, and Prosthetics. 
-      I am advised by Prof. Sean Follmer at <a href="https://shape.stanford.edu/"> SHAPE Lab </a>. 
+      I am active in the <a href="http://softrobotics.snu.ac.kr/">Soft Robotics & Bionics Lab</a> and <a href="https://hero.snu.ac.kr/">HeRo Lab</a>. 
     </p>
     <p class="text-muted wow animated fadeIn" data-wow-delay=".25s">
       :woman_technologist: <b>I'm working on:</b> Developing accessible graphic interaction through congitive modeling <br>
@@ -40,5 +40,27 @@
     <!-- <p class="additional-text wow animated slideInUp" data-wow-delay=".15s">
        
     </p> -->
+  </div>
+</div>
+
+<!-- About Sections: Timeline & Skills -->
+<div class="row mt-5">
+  <!-- Timeline Section -->
+  <div class="col-lg-6 mb-4">
+    <h2 class="mb-4 text-center">Timeline</h2>
+    {% include about/timeline.html %}
+  </div>
+  
+  <!-- Skills Section -->
+  <div class="col-lg-6 mb-4">
+    <!-- Programming Skills -->
+    <div class="mb-4">
+      {% include about/skills.html title="Programming Skills" source=site.data.programming-skills %}
+    </div>
+    
+    <!-- Other Skills -->
+    <div class="mb-4">
+      {% include about/skills.html title="Other Skills" source=site.data.other-skills %}
+    </div>
   </div>
 </div>

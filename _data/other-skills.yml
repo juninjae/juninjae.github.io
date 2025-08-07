@@ -1,7 +1,19 @@
-- name: Adobe Photoshop
-  percentage: 95
-  color: info
-
-- name: Adobe Illustrator
+- name: SolidWorks / Fusion 360 / Blender
   percentage: 90
   color: success
+
+- name: Ansys
+  percentage: 80
+  color: info
+
+- name: 3D Printing (Form3+, Fuse1)
+  percentage: 85
+  color: warning
+
+- name: Laser Cutting
+  percentage: 75
+  color: primary
+
+- name: Arduino / Raspberry Pi
+  percentage: 70
+  color: secondary
