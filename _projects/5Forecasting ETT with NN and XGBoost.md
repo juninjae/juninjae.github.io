@@ -1,11 +1,21 @@
 ---
-name: Open Source Hardware - Cyclic Voltammetry
-tools: [Arduino, Python]
-image: https://github.com/saehuihwang/cyclic_voltammetry/blob/main/media/CV_schematic_bb.png?raw=true
-description: An arduino based cyclic voltametry instrument (CV)
+name: Forecasting ETT with NN and XGBoost
+tools: [PyTorch, XGBoost, Time Series]
+image: /assets/images/ett_forecasting.png
+description: Forecasting endotracheal tube (ETT) related signals using neural networks and XGBoost.
 ---
 
-# Open Source Hardware Project : Cyclic Voltammetry
+# Forecasting ETT data with NN and XGBoost
+
+Summarize dataset, feature engineering, model setup, metrics, and results.
+
+
+## Launch
+
+We left campus at around 5AM to get to the launch site, and launched the balloon by 8AM. As soon as we launched, every team member hopped into the car to track the balloon on the ground. Ham radios and APRS (Automatic Packet Reporting System) were used. We roamed around the desert following the balloon around in hopes to be the first to catch the payload when it lands. 
+![alt text](/assets/images/recovery.jpeg "Recover")
+
+{% include elements/video.html video_ids="lCmHNYg-FR0" %}
 
 #### [Source Code](https://github.com/saehuihwang/cyclic_voltammetry)
 

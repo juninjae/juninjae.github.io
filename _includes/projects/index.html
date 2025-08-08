@@ -13,7 +13,9 @@
   %}
 
   <!-- Local Projects -->
-  {% for project in site.projects %} {%- assign project_url = project.url |
+  {% for project in site.projects %}
+  {% unless project.hidden %}
+  {%- assign project_url = project.url |
   relative_url -%}{%- assign project_img = project.image -%}{%- assign
   project_pdf = project.pdf -%} {%- assign project_name = project.name -%}{%- if
   project.layout == "publication" -%} {%- assign project_type = "publication"
@@ -27,5 +29,7 @@
   assign external = true -%} {%- else -%} {%- assign project_url = project.url |
   relative_url -%} {%- assign external = false -%} {%- endif -%} {%- assign
   project_type = "local" -%} {%- endif -%} {%- include
-  projects/project-card.html -%} {% endfor %}
+  projects/project-card.html -%}
+  {% endunless %}
+  {% endfor %}
 </div>

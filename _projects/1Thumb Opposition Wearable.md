@@ -21,4 +21,7 @@ buttons:
     link: InflatableSkin.pdf
 #   - name: Template GitHub Repository
 #     icon: fas fa-solid fa-github
+hidden: false
 ---
+
+
