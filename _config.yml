@@ -16,7 +16,8 @@ nav_exclude: # The following paths are excluded from navbar
   - pages/tags.html
   - pages/404.html
   - pages/index.md
-  #- pages/stories.html
+  - pages/search.json
+  - documentation/**
   - documentation/elements.html
   - documentation/docs.md
   - documentation/github.md
