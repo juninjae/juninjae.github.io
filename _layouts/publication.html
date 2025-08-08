@@ -6,9 +6,9 @@ layout: default
   <h2>{{page.title}}</h2>
   <p>
     {% for auth in page.authors %}{%if auth == page.authors.last%}{% if auth !=
-    pub.authors.first %}{%endif%} {%if auth contains "Saehui Hwang"
+    pub.authors.first %}{%endif%} {%if auth contains "Injae Jun"
     %}<b>{{auth}}</b>{%else%}{{auth}}{%endif%}{%else%}{% if auth contains
-    "Saehui Hwang" %}<b>{{auth}}</b>,{% if page.authors.length > 2
+    "Injae Jun" %}<b>{{auth}}</b>,{% if page.authors.length > 2
     %},{%endif%}{%else%}{{auth}},{% if page.authors.length > 2 %},{%endif%}
     {%endif%} {%endif%} {%endfor%}<br />
 
