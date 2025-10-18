@@ -1,7 +1,7 @@
 ---
 name: FCX24 Lemur - Reverse Engineering and Improvement
 tools: [CAD, Mechanism Design, Simulation, Dynamics]
-image: /assets/images/Lemur thumbnail.png
+image: /assets/images/FCX24.png
 description: Reverse engineering, dynamic analysis, and performance improvement of the FCX24 Lemur RC Car; for better stability and traction.
 ---
 
