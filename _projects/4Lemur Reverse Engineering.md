@@ -70,4 +70,10 @@ Calculated gear ratios and torque multipliers (22.3× low-gear vs 6.7× high-gea
 {% include elements/carousel.html carousel_id="lemur-improvement" carousel_images=carousel_images %}
 Tested fabricated improvements, including a rear-biased suspension with custom-viscosity oil (2010 cSt) designed to reduce wheel slip and enhance traction.
 
-
+### Report
+{% assign report_path = "/assets/publications/FCX24 Lemur.pdf" %}
+<iframe 
+  src="{{ report_path | relative_url }}" 
+  style="width:100%; height:90vh; border:none;" 
+  title="FCX24 Lemur Report PDF">
+</iframe>
