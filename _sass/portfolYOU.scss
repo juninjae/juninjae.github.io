@@ -16,5 +16,15 @@
 }
 
 .carousel-indicators li {
-  background-color: #212529;
+  background-color: #212529 !important;
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  margin: 0 4px !important;
+  opacity: 0.5 !important;
+}
+
+.carousel-indicators .active {
+  opacity: 1 !important;
+  background-color: #007bff !important;
 }

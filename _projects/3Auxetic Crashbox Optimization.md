@@ -6,6 +6,8 @@ description: Designing and optimizing auxetic crashbox structures for improved e
 ---
 
 # Auxetic Crashbox Optimization
+프로젝트 요약
+**Key takeaways:**  
 
 ## Add overview, method (FEA/optimization), and results.
 
