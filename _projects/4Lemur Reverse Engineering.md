@@ -24,7 +24,7 @@ Finally, to prevent rear-wheel slip our team designed and tested a **custom-damp
 /assets/images/Lemur/slides/slide5.JPG
 /assets/images/Lemur/slides/slide6.JPG
 {% endcapture %}
-{% include elements/carousel.html carousel_id="carousel2" carousel_images=carousel_images %}
+{% include elements/carousel.html carousel_id="lemur-intro" carousel_images=carousel_images %}
 Analyzed the FCX24 Lemur RC car to understand real-vehicle dynamics using an accessible small-scale platform.
 
 ### Analysis
@@ -35,7 +35,7 @@ Conducted structural and dynamic analysis on chassis, suspension, steering, and 
 /assets/images/Lemur/slides/slide7.JPG
 /assets/images/Lemur/slides/slide8.JPG
 {% endcapture %}
-{% include elements/carousel.html carousel_id="carousel2" carousel_images=carousel_images %}
+{% include elements/carousel.html carousel_id="lemur-chassis" carousel_images=carousel_images %}
 Simulated horizontal and vertical loads in Fusion 360 and ANSYS; chassis withstood > 250 N vertically with minimal deformation.
 
 #### Suspension
@@ -44,7 +44,7 @@ Simulated horizontal and vertical loads in Fusion 360 and ANSYS; chassis withsto
 /assets/images/Lemur/slides/slide10.JPG
 /assets/images/Lemur/slides/slide11.JPG
 {% endcapture %}
-{% include elements/carousel.html carousel_id="carousel2" carousel_images=carousel_images %}
+{% include elements/carousel.html carousel_id="lemur-suspension" carousel_images=carousel_images %}
 Modeled spring–damper behavior and measured stiffness/damping values (k₁ = 2141 N/m, c₀ = 20 Ns/m) for optimal ride stability.
 
 #### Steering & Drivetrain
@@ -58,7 +58,7 @@ Modeled spring–damper behavior and measured stiffness/damping values (k₁ = 2
 /assets/images/Lemur/slides/slide18.JPG
 /assets/images/Lemur/slides/slide19.JPG
 {% endcapture %}
-{% include elements/carousel.html carousel_id="carousel2" carousel_images=carousel_images %}
+{% include elements/carousel.html carousel_id="lemur-drivetrain" carousel_images=carousel_images %}
 Calculated gear ratios and torque multipliers (22.3× low-gear vs 6.7× high-gear); confirmed inverse relation between speed and torque.
 
 ### Improvement
@@ -67,7 +67,7 @@ Calculated gear ratios and torque multipliers (22.3× low-gear vs 6.7× high-gea
 /assets/images/Lemur/slides/slide21.JPG
 /assets/images/Lemur/slides/slide22.JPG
 {% endcapture %}
-{% include elements/carousel.html carousel_id="carousel2" carousel_images=carousel_images %}
+{% include elements/carousel.html carousel_id="lemur-improvement" carousel_images=carousel_images %}
 Tested fabricated improvements, including a rear-biased suspension with custom-viscosity oil (2010 cSt) designed to reduce wheel slip and enhance traction.
 
 
