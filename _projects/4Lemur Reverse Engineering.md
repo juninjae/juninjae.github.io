@@ -6,7 +6,7 @@ description: Reverse engineering, dynamic analysis, and performance improvement 
 ---
 
 # FCX24 Lemur – Reverse Engineering and Improvement
-
+{% include elements/figure.html image="/assets/images/FCX24.png" %}
 This project involved **complete disassembly, 3D modeling, and mechanical analysis** of the FMS FCX24 Lemur 1:24 RC Car.  
 The work included detailed studies of its **chassis, drivetrain, suspension, and steering systems** using Fusion 360 and ANSYS to explore real automotive dynamics on a miniature scale.
 Finally, to prevent rear-wheel slip our team designed and tested a **custom-damped suspension**.
