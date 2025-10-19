@@ -36,7 +36,12 @@ Unlike complex self-driving suitcases, this design maintains simplicity while en
 ### Hardware Development
 {% capture carousel_images %}
 /assets/images/ABC/slides/slide3.png
-/assets/images/ABC/slides/hardware2.png
+/assets/images/ABC/slides/slide4.jpg
+/assets/images/ABC/slides/slide5.jpg
+/assets/images/ABC/slides/slide6.jpg
+/assets/images/ABC/slides/slide7.jpg
+/assets/images/ABC/slides/slide8.jpg
+/assets/images/ABC/slides/slide9.jpg
 {% endcapture %}
 {% include elements/carousel.html carousel_id="abc-hw" carousel_images=carousel_images %}
 
@@ -52,7 +57,9 @@ Unlike complex self-driving suitcases, this design maintains simplicity while en
 
 ### Reinforcement Learning
 {% capture carousel_images %}
-/assets/images/ABC/slides/rl1.png
+/assets/images/ABC/slides/slide10.gif
+/assets/images/ABC/slides/slide11.gif
+/assets/images/ABC/slides/slide12.gif
 {% endcapture %}
 {% include elements/carousel.html carousel_id="abc-rl" carousel_images=carousel_images %}
 

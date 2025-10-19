@@ -2,7 +2,7 @@
 {%- assign images = include.carousel_images | strip | newline_to_br | split:
 '<br />' -%}
 
-<div id="{{ carousel_id }}" class="carousel slide" data-ride="false">
+<div id="{{ carousel_id }}" class="carousel slide" data-ride="false" data-interval="false">
   <ol class="carousel-indicators">
     {% for image in images %} {%- if forloop.first -%}
     <li
