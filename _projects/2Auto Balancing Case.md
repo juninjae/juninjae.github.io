@@ -6,7 +6,7 @@ description: A smart suitcase that automatically shifts its center of mass to re
 ---
 
 # Auto Balancing Case
-{% include elements/figure.html image="/assets/images/ABC.png" %}
+{% include elements/figure.html image="/assets/images/ABC/slides/slide0.png" %}
 
 An **auto-balancing suitcase** that dynamically adjusts its center of mass to reduce wrist torque and **improve user comfort** on uneven surfaces.  
 Developed through an end-to-end pipeline, covering hardware fabrication, sensing, reinforcement learning, Sim2Real transfer, and real-time control.  
@@ -101,4 +101,5 @@ This feedback loop maintains upright stability during start, stop, and uneven-su
 
 ### Future Work
 Potential extensions include **quantitative evaluation of handling-effort reduction** and **expanded application** to carts and logistics platforms.
+{% include elements/figure.html image="/assets/images/ABC/slides/slide17.png" %}
 
