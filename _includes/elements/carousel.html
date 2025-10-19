@@ -50,3 +50,29 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+
+<style>
+#{{ carousel_id }} .carousel-control-prev-icon,
+#{{ carousel_id }} .carousel-control-next-icon {
+  background-color: #007bff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+#{{ carousel_id }} .carousel-control-prev-icon:before,
+#{{ carousel_id }} .carousel-control-next-icon:before {
+  color: white;
+  font-weight: bold;
+}
+
+#{{ carousel_id }} .carousel-control-prev,
+#{{ carousel_id }} .carousel-control-next {
+  opacity: 0.8;
+}
+
+#{{ carousel_id }} .carousel-control-prev:hover,
+#{{ carousel_id }} .carousel-control-next:hover {
+  opacity: 1;
+}
+</style>
