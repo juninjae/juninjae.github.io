@@ -6,8 +6,7 @@ description: A smart suitcase that automatically shifts its center of mass to re
 ---
 
 # Auto Balancing Case
-
-![Auto Balancing Case](/assets/images/ABC.png)
+{% include elements/figure.html image="/assets/images/ABC.png" %}
 
 An **auto-balancing suitcase** that dynamically adjusts its center of mass to reduce wrist torque and **improve user comfort** on uneven surfaces.  
 Developed through an end-to-end pipeline, covering hardware fabrication, sensing, reinforcement learning, Sim2Real transfer, and real-time control.  
@@ -19,7 +18,7 @@ All design files, simulation environments, and reinforcement learning policies a
 ---
 
 ### Problem & Motivation
-{% include elements/figure.html image="/assets/images/ABC/slides/slide1.jpg" %}
+{% include elements/figure.html image="/assets/images/ABC/slides/slide1.png" %}
 
 Conventional suitcases often tilt forward on carpets, ramps, and uneven surfaces, **requiring users to apply excessive wrist torque** to maintain posture.  
 As suitcase use increases with frequent travel and long-distance mobility, the demand for reduced user fatigue and improved handling comfort continues to grow.  
@@ -27,7 +26,7 @@ Unlike existing autonomous suitcases that rely on costly and complex vision base
 
 
 ### Solution Concept
-{% include elements/figure.html image="/assets/images/ABC/slides/slide2.jpg" %}
+{% include elements/figure.html image="/assets/images/ABC/slides/slide2.png" %}
 
 Introduced a **mass-shifting upper body** design that moves the luggage’s center of gravity rearward during pushing.  
 By preventing initial tipping, the design eliminates the need for users to apply wrist torque to maintain balance.  
@@ -36,19 +35,19 @@ Unlike complex self-driving suitcases, this design maintains simplicity while en
 
 ### Hardware Development
 {% capture carousel_images %}
-/assets/images/ABC/slides/hardware1.png
+/assets/images/ABC/slides/slide3.png
 /assets/images/ABC/slides/hardware2.png
 {% endcapture %}
 {% include elements/carousel.html carousel_id="abc-hw" carousel_images=carousel_images %}
 
 #### Sensor Design  
-- Four **button-type load cells** mounted at each wheel measure ground contact load.  
-- Two **bar-type load cells** in the handle measure user-applied forces.  
-- All signals are amplified via **HX711 modules** for precise data acquisition.  
+- Four button-type load cells mounted at each wheel **measure ground contact load**.  
+- Two bar-type load cells in the handle **measure user-applied forces**.  
+- All signals are amplified via HX711 modules for precise data acquisition.  
 
 #### Actuator Design  
-- Dual **Dynamixel XL430-W250-T** motors connected via a **differential gear** to generate a single controlled tilt angle.  
-- Base structure remains in continuous contact with the ground, minimizing axial load on the actuators.
+- Dual Dynamixel XL430-W250-T motors connected via a **differential gear** to generate a single controlled tilt angle.  
+- **Base structure remains in continuous contact** with the ground, minimizing axial load on the actuators.
 
 
 ### Reinforcement Learning
