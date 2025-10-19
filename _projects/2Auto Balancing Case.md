@@ -9,7 +9,8 @@ description: A smart suitcase that automatically shifts its center of mass to re
 
 ![Auto Balancing Case](/assets/images/ABC.png)
 
-An **auto-balancing suitcase** that dynamically adjusts its center of mass to reduce wrist torque and improve user comfort on uneven surfaces.  
+An **auto-balancing suitcase** that dynamically adjusts its center of mass to reduce wrist torque and **improve user comfort** on uneven surfaces.
+Developed through an end-to-end pipeline, covering hardware fabrication, sensing, reinforcement learning, Sim2Real transfer, and real-time control.
 All design files, simulation environments, and reinforcement learning policies are fully open-sourced.  
 [🔗 Source Code](https://github.com/erickun0125/Auto_Balancing_Case)
 
@@ -18,16 +19,12 @@ All design files, simulation environments, and reinforcement learning policies a
 ---
 
 ### Problem & Motivation
-{% capture carousel_images %}
-/assets/images/ABC/slides/problem1.png
-/assets/images/ABC/slides/problem2.png
-{% endcapture %}
-{% include elements/carousel.html carousel_id="abc-problem" carousel_images=carousel_images %}
+{% include elements/figure.html image="/assets/images/ABC/slides/slide1.JPG" %}
 
-Conventional suitcases often tilt forward on carpets, ramps, and uneven surfaces, requiring users to apply excessive wrist torque to maintain posture.  
-This project proposes a **center-of-mass control mechanism** that minimizes wrist strain by autonomously balancing the suitcase during motion.
+Conventional suitcases often tilt forward on carpets, ramps, and uneven surfaces, **requiring users to apply excessive wrist torque** to maintain posture.
+As suitcase use increases with frequent travel and long-distance mobility, the demand for reduced user fatigue and improved handling comfort continues to grow.
+Unlike existing autonomous suitcases that rely on costly and complex vision based SLAM systems, this project focuses on automating posture stabilization-allowing users to simply push the suitcase without exerting extra wrist effort.
 
----
 
 ### Solution Concept
 {% capture carousel_images %}
@@ -37,10 +34,9 @@ This project proposes a **center-of-mass control mechanism** that minimizes wris
 {% include elements/carousel.html carousel_id="abc-solution" carousel_images=carousel_images %}
 
 Introduced a **mass-shifting upper body** design that moves the luggage’s center of gravity rearward during pushing.  
-This prevents initial tipping and distributes load evenly across the wrist.  
+By preventing initial tipping, the design eliminates the need for users to apply wrist torque to maintain balance.
 Unlike complex self-driving suitcases, this design maintains simplicity while enhancing ergonomic comfort and stability.
 
----
 
 ### Hardware Development
 {% capture carousel_images %}
@@ -58,7 +54,6 @@ Unlike complex self-driving suitcases, this design maintains simplicity while en
 - Dual **Dynamixel XL430-W250-T** motors connected via a **differential gear** to generate a single controlled tilt angle.  
 - Base structure remains in continuous contact with the ground, minimizing axial load on the actuators.
 
----
 
 ### Reinforcement Learning
 {% capture carousel_images %}
@@ -71,7 +66,6 @@ Unlike complex self-driving suitcases, this design maintains simplicity while en
 - **Training Strategy:** Domain Randomization + Custom Reward (posture stability, balanced wheel loads).  
 - **Outcome:** Learned robust control policies for balancing under disturbances and slope conditions.
 
----
 
 ### Sim2Real Transfer
 {% capture carousel_images %}
@@ -84,7 +78,6 @@ Unlike complex self-driving suitcases, this design maintains simplicity while en
 - **Policy Integration:** Simulation-trained control policies adapted to hardware through a custom I/O bridge.  
 - **Gap Mitigation:** Addressed delay, noise, and frequency mismatches for stable real-world transfer.
 
----
 
 ### Control Loop
 {% capture carousel_images %}
@@ -95,7 +88,6 @@ Unlike complex self-driving suitcases, this design maintains simplicity while en
 The RL-based controller operates at **50 Hz**, continuously reading sensor inputs, running the learned policy, and outputting real-time motor commands.  
 This feedback loop maintains upright stability during start, stop, and uneven-surface transitions.
 
----
 
 ### Results
 {% capture carousel_images %}
@@ -108,12 +100,10 @@ This feedback loop maintains upright stability during start, stop, and uneven-su
 - Demonstrated **smooth center-of-mass adjustment** and responsive recovery during external disturbances.  
 - The modular design can be **embedded into existing suitcase frames**, allowing scalable manufacturing and product integration.
 
----
 
 ### Future Work
 Potential extensions include integrating **IMU-based posture estimation**, adaptive control for dynamic walking scenarios, and expanded application to **carts and logistics platforms**.
 
----
 
 ### Appendix
 {% capture carousel_images %}
