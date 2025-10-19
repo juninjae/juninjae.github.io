@@ -87,24 +87,18 @@ This feedback loop maintains upright stability during start, stop, and uneven-su
 
 ### Results
 {% capture carousel_images %}
-/assets/images/ABC/slides/result1.png
-/assets/images/ABC/slides/result2.png
+/assets/images/ABC/slides/slide15.gif
+/assets/images/ABC/slides/slide16.jpg
 {% endcapture %}
 {% include elements/carousel.html carousel_id="abc-result" carousel_images=carousel_images %}
 
-- **Successfully maintained stability** on slopes and rough terrains without additional user torque.  
+- Test users reported **no need for additional wrist torque**, resulting in clearly lower handling effort on rough terrains.  
 - Demonstrated **smooth center-of-mass adjustment** and responsive recovery during external disturbances.  
 - The modular design can be **embedded into existing suitcase frames**, allowing scalable manufacturing and product integration.
+- Advanced to the finals of the *14th SNU Creative Design Fair*.
+
 
 
 ### Future Work
-Potential extensions include integrating **IMU-based posture estimation**, adaptive control for dynamic walking scenarios, and expanded application to **carts and logistics platforms**.
+Potential extensions include **quantitative evaluation of handling-effort reduction** and **expanded application** to carts and logistics platforms.
 
-
-### Appendix
-{% capture carousel_images %}
-/assets/images/ABC/slides/appendix1.png
-/assets/images/ABC/slides/appendix2.png
-{% endcapture %}
-{% include elements/carousel.html carousel_id="abc-appendix" carousel_images=carousel_images %}
-Additional diagrams and control flowcharts illustrating the system architecture and policy pipeline.
