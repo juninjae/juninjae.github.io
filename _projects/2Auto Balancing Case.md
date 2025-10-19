@@ -70,22 +70,16 @@ Unlike complex self-driving suitcases, this design maintains simplicity while en
 
 
 ### Sim2Real Transfer
-{% capture carousel_images %}
-/assets/images/ABC/slides/sim2real1.png
-{% endcapture %}
-{% include elements/carousel.html carousel_id="abc-sim2real" carousel_images=carousel_images %}
+{% include elements/figure.html image="/assets/images/ABC/slides/slide13.png" %}
 
 - **Sensor Interface:** Real-time load sensing via Arduino + HX711.  
 - **Motor Control:** Low-level actuation with Dynamixel SDK.  
-- **Policy Integration:** Simulation-trained control policies adapted to hardware through a custom I/O bridge.  
+- **Policy Integration**: Hardware I/O bridged to match the trained policy’s input/output format.
 - **Gap Mitigation:** Addressed delay, noise, and frequency mismatches for stable real-world transfer.
 
 
 ### Control Loop
-{% capture carousel_images %}
-/assets/images/ABC/slides/control1.png
-{% endcapture %}
-{% include elements/carousel.html carousel_id="abc-control" carousel_images=carousel_images %}
+{% include elements/figure.html image="/assets/images/ABC/slides/slide14.png" %}
 
 The RL-based controller operates at **50 Hz**, continuously reading sensor inputs, running the learned policy, and outputting real-time motor commands.  
 This feedback loop maintains upright stability during start, stop, and uneven-surface transitions.

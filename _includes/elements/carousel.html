@@ -54,25 +54,11 @@
 <style>
 #{{ carousel_id }} .carousel-control-prev-icon,
 #{{ carousel_id }} .carousel-control-next-icon {
-  background-color: #007bff;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  filter: brightness(0) saturate(100%) invert(58%) sepia(69%) saturate(2142%) hue-rotate(202deg) brightness(103%) contrast(101%);
 }
 
-#{{ carousel_id }} .carousel-control-prev-icon:before,
-#{{ carousel_id }} .carousel-control-next-icon:before {
-  color: white;
-  font-weight: bold;
-}
-
-#{{ carousel_id }} .carousel-control-prev,
-#{{ carousel_id }} .carousel-control-next {
-  opacity: 0.8;
-}
-
-#{{ carousel_id }} .carousel-control-prev:hover,
-#{{ carousel_id }} .carousel-control-next:hover {
-  opacity: 1;
+#{{ carousel_id }} .carousel-control-prev:hover .carousel-control-prev-icon,
+#{{ carousel_id }} .carousel-control-next:hover .carousel-control-next-icon {
+  filter: brightness(0) saturate(100%) invert(27%) sepia(96%) saturate(6864%) hue-rotate(202deg) brightness(97%) contrast(101%);
 }
 </style>
