@@ -75,74 +75,65 @@ Each model was trained and compared based on **Mean Squared Error (MSE)**, **fea
 
 > Overall, this feature pipeline separates **trend (baseline)** from **change (Δy)**, reduces nonstationarity, and enhances generalization through temporal smoothing and cyclic signal encoding.
 
-
-
-
 ### 1. Ensemble Model (XGBoost)
-{% capture carousel_images %}
-/assets/images/ETT_forecast/slides/xgboost_param.png
-/assets/images/ETT_forecast/slides/xgboost_result.png
-{% endcapture %}
-{% include elements/carousel.html carousel_id="ett-xgb" carousel_images=carousel_images %}
 
-- Explored multiple XGBoost hyperparameters:
-  - `n_estimators`, `max_depth`, `learning_rate`, and `subsample`
-- Applied **feature engineering**:
-  - Time decomposition (hour, day, week)
-  - Rolling-window statistics (mean, variance)
-  - Normalization and missing value imputation
-- **Result:** Improved prediction stability and lower MSE compared to baseline  
-- **Key insight:** Properly tuned tree depth and subsample ratio improved temporal generalization while preventing overfitting.
+Trained an ensemble regression model using **XGBoost** with carefully tuned hyperparameters.  
+Feature engineering included time decomposition, rolling-window statistics, and residual-based target transformation.
 
-*(Insert loss curve or feature importance plot here)*
+```python
+best_model_config = {
+    "experiment_name": "final_model",
+    "objective": "reg:squarederror",
+    "n_estimators": 50,
+    "learning_rate": 0.015,
+    "random_state": 2025,
+    "max_depth": 6,
+    "max_leaves": 0,
+    "min_child_weight": 4.0,
+    "gamma": 0.75,
+    "subsample": 0.7,
+    "colsample_bytree": 0.7,
+    "colsample_bynode": 0.7,
+    "grow_policy": "depthwise",
+    "tree_method": "hist",
+    "reg_alpha": 0.1,
+    "reg_lambda": 2.0,
+    "scale_pos_weight": 1.0,
+    "n_jobs": -1,
+    "device": "cpu",
+    "max_bin": 256,
+    "enable_categorical": False,
+    "max_cat_to_onehot": None,
+    "multi_strategy": "one_output_per_tree",
+}
+```
+Result:
+Achieved an MSE of 0.1298, ranking within the *top 1%* among 200 participants.
+Properly tuned depth and subsampling enhanced stability and reduced overfitting across time windows.
 
----
 
 ### 2. Neural Network Model
-{% capture carousel_images %}
-/assets/images/ETT_forecast/slides/nn_architecture.png
-/assets/images/ETT_forecast/slides/nn_loss.png
-{% endcapture %}
-{% include elements/carousel.html carousel_id="ett-nn" carousel_images=carousel_images %}
+{% include elements/figure.html image="/assets/images/ETT_forecast/slides/nn_architecture.svg" %}
 
 - Implemented in **PyTorch**  
 - Architecture:
-  - Input: 11-dimensional vector (features)
-  - Layers: MLP with dropout and ReLU activation  
+  - Input: 29-dimensional vector (features)
+  - Layers: Three hidden layers (256 → 128 → 64 neurons) with ReLU activation and Dropout(0.2)  
   - Output: 1 (predicted oil temperature)
 - Training details:
   - Optimizer: Adam  
   - Loss: MSELoss  
-  - Scheduler: StepLR  
+  - Scheduler: ReduceLROnPlateau  
 - Applied **hyperparameter tuning** on hidden size, learning rate, and batch size.  
-- **Result:** NN model achieved smoother long-term trend prediction but required more data and epochs to converge.  
-
-*(Insert training/validation loss curve here)*
+- **Result:** Achieved a Test MSE of 0.132, ranking within the <u>top 1% among 200 participants</u>.
 
 ---
 
-### Comparison & Discussion
-| Model | Type | Best Test MSE ↓ | Strengths | Limitations |
-|:------|:------|:---------------:|:-----------|:-------------|
-| XGBoost | Ensemble (tree-based) | ~0.00X | Fast, interpretable, handles small data well | Limited temporal context |
-| NN (MLP) | Deep learning | ~0.00X | Learns complex temporal dependencies | Requires careful tuning and longer training |
+### Repository & Code
+📂 **All related data, code, and implementation details are available on GitHub:**
 
-**Takeaway:**  
-XGBoost showed strong baseline performance with efficient training, while neural networks captured nonlinear interactions more effectively, suggesting potential improvement through hybrid models or temporal architectures (e.g., LSTM, Transformer).
-
----
-
-### Future Work
-Potential extensions include:
-- Incorporating **sequence-aware architectures** (RNN, LSTM, Transformer).  
-- Applying **attention mechanisms** for temporal importance weighting.  
-- Building a **hybrid ensemble** combining tree-based and neural models for better stability.  
-
----
-
-### Repository & Notebook
-📂 All implementation details are available in the Jupyter notebooks:  
-- [`final_project_1_ensemble.ipynb`](https://github.com/yourusername/forecasting-ett/blob/main/final_project_1_ensemble.ipynb)  
-- [`final_project_2_nn.ipynb`](https://github.com/yourusername/forecasting-ett/blob/main/final_project_2_nn.ipynb)
-
-*(Optional) Add a GIF or figure showing predictions vs ground truth curves here for visual comparison.*
+🔗 **[GitHub Repository](https://github.com/juninjae/forecasting-ett)**  
+- Jupyter notebooks with complete implementation
+- Feature engineering pipeline (`feature_engineering.py`)
+- Trained models and results
+- Dataset preprocessing scripts
