@@ -14,6 +14,7 @@ image: /assets/images/life/RTY/thumbnail.jpg
 {% include elements/carousel.html carousel_id="ksae-gallery" carousel_images=carousel_images %}
 
 **{{ page.title }}**
+
 **Date:** {{ page.date | date: "%B %d, %Y" }}
 
 Participated in the National Student Automobile Competition (KSAE) with our dedicated team. After months of intensive preparation and hard work from all team members, we successfully completed our vehicle design and testing.
