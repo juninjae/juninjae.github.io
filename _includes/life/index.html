@@ -1,6 +1,7 @@
 <div class="life-grid m-3 mt-5">
   <!-- Life Posts -->
-  {% for life_post in site.life %}
+  {% assign sorted_life = site.life | sort: 'date' | reverse %}
+  {% for life_post in sorted_life %}
   {%- assign life_url = life_post.url | relative_url -%}
   {%- assign life_img = life_post.image -%}
   {%- assign life_name = life_post.title -%}

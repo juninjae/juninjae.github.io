@@ -7,7 +7,7 @@ image: /assets/images/life/RTY/thumbnail.jpg
 {% capture carousel_images %}
 /assets/images/life/RTY/thumbnail.jpg
 /assets/images/life/RTY/image1.png
-/assets/images/life/RTY/video1.mp4
+/assets/images/life/RTY/gif1.gif
 /assets/images/life/RTY/image2.jpg
 /assets/images/life/RTY/image3.jpg
 {% endcapture %}
