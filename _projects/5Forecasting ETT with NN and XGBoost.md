@@ -130,10 +130,5 @@ Properly tuned depth and subsampling enhanced stability and reduced overfitting 
 ---
 
 ### Repository & Code
-📂 **All related data, code, and implementation details are available on GitHub:**
-
-🔗 **[GitHub Repository](https://github.com/juninjae/forecasting-ett)**  
-- Jupyter notebooks with complete implementation
-- Feature engineering pipeline (`feature_engineering.py`)
-- Trained models and results
-- Dataset preprocessing scripts
+**All related data, code, and implementation details are available on GitHub:**
+🔗 **[GitHub Repository](https://github.com/juninjae/ETT_forecast)**  
