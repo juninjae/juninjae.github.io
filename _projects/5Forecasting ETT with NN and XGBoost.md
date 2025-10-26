@@ -31,10 +31,7 @@ The goal was to build models capable of learning **multivariate dependencies** a
 
 
 ### Approach Overview
-{% capture carousel_images %}
-/assets/images/ETT_forecast/slides/pipeline.svg
-{% endcapture %}
-{% include elements/carousel.html carousel_id="ett-approach" carousel_images=carousel_images %}
+{% include elements/figure.html image="/assets/images/ETT_forecast/slides/pipeline.svg" %}
 
 The project consists of two parallel pipelines:
 1. **Ensemble Model (XGBoost)** — regression using boosted decision trees  
@@ -44,9 +41,39 @@ Each model was trained and compared based on **Mean Squared Error (MSE)**, **fea
 
 ---
 
-###  0. 제목?
-사진 없음
-설명
+### 0. Feature Engineering
+
+> **Core idea:** redefine the target as **Δy = yₜ − yₜ₋₁** instead of absolute y, and enrich the dataset with **temporal, statistical, and cyclic features** to improve generalization.
+
+| Step | Operation | Purpose |
+|------|------------|----------|
+| 1 | **Missing value handling:** forward-fill, then fill remaining NaNs with train mean (train/test) | Maintain time-series continuity |
+| 2 | **Lag features (Train):** create `y_lag_1`, `y_lag_2`; remove first 2 NaN rows | Inject temporal dependency |
+| 3 | **Lag features (Test):** same shift logic, fill first rows using train mean | Stabilize initial test sequence |
+| 4 | **Difference feature:** `y_diff = y_lag_1 − y_lag_2` | Capture short-term variation |
+| 5 | **Residual target:** `y_residual = y − y_lag_1` → renamed as `y` | Learn Δy instead of absolute y |
+| 6 | **Outlier handling:** replace out-of-range values (`feat_5 > 100`, `feat_7 ∉ [1,8]`) with NaN → forward-fill | Remove extreme noise |
+| 7 | **Moving average (MA):** apply 5-step mean to `feat_1~8` → `*_ma` | Smooth short-term fluctuations |
+| 8 | **Log transform:** log-scale `feat_1~8` using train-min offset | Normalize skewed distributions |
+| 9 | **Cyclic encoding:** convert `day_of_week`, `hour` → `sin/cos` pairs | Encode daily/weekly periodicity |
+| 10 | **Boundary handling:** detect if test follows train → if yes, copy last train y’s; otherwise, use **meta XGBoost** to predict initial lags | Ensure seamless test transition |
+| 11 | **Post-processing (y features):** apply MA(5) to `y_lag_1`, `y_diff`, `y_residual` | Reduce high-frequency noise |
+| 12 | **Feature selection:** choose active features from raw/log/MA/lag/diff/cyclic; set `y_residual → y` as final target | Avoid overfitting, finalize training set |
+| 13 | **Inverse transform:** `inverse_y(pred) = pred + y_lag_1` (auto-handled for train/test) | Convert residuals back to actual y |
+| 14 | **Validation sync:** remove first 2 train rows to align with augmented dataset | Maintain consistency during evaluation |
+
+**Final Training Target**  
+- Train: `y ← y_residual (Δy)`  
+- Test prediction restored as: `ŷ = inverse_y(ŷ_residual) = ŷ_residual + y_lag_1`
+
+**Selected Feature Groups**  
+- Raw: `feat_1,2,3,4,6,7,8`  
+- Log-scaled: `feat_1~4,6~8_log`  
+- Moving averages: `feat_1~4,6~8_ma`  
+- Lag/diff: `y_lag_1, y_diff, y_lag_1_ma, y_diff_ma`  
+- Cyclic encodings: `day_sin, day_cos, hour_sin, hour_cos`
+
+> Overall, this feature pipeline separates **trend (baseline)** from **change (Δy)**, reduces nonstationarity, and enhances generalization through temporal smoothing and cyclic signal encoding.
 
 
 
