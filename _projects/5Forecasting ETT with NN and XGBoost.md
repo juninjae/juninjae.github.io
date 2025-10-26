@@ -1,45 +1,116 @@
 ---
-name: Forecasting ETT with NN and XGBoost
-tools: [PyTorch, XGBoost, Time Series]
-image: /assets/images/ett_forecasting.png
-description: Forecasting endotracheal tube (ETT) related signals using neural networks and XGBoost.
+name: Forecasting ETT with Neural Network and XGBoost
+tools: [Python, XGBoost, PyTorch, Time Series]
+image: /assets/images/ETT_forecast_thumbnail.png
+description: Forecasting transformer oil temperature using multivariate time-series regression with XGBoost and Neural Networks.
+---
+# Forecasting ETT with Neural Network and XGBoost
+
+A comparative study on **multivariate time-series forecasting** using the *Electricity Transformer Temperature (ETT)* dataset.  
+Implemented both ensemble-based regression (XGBoost) and deep learning models (Neural Networks) to predict transformer oil temperature (OT) based on 11 correlated sensor readings.  
+By redefining the target variable as **Δy (change in temperature)** instead of the absolute value, the model captured temporal dynamics more effectively and **achieved top 1% accuracy among 200 participants**.
 ---
 
-# Forecasting ETT data with NN and XGBoost
+### Background
+{% capture carousel_images %}
+/assets/images/ETT_forecast/slides/ett_overview.png
+/assets/images/ETT_forecast/slides/multivariate_timeseries.png
+{% endcapture %}
+{% include elements/carousel.html carousel_id="ett-background" carousel_images=carousel_images %}
 
-Summarize dataset, feature engineering, model setup, metrics, and results.
+The **ETT dataset** records two years of transformer operational data (2016–2018), including features such as time indices and multiple sensor readings.  
+It was modified for this project to include 11 features and artificial missing values to simulate real-world data imperfections.  
+The goal was to build models capable of learning **multivariate dependencies** and **temporal patterns** for accurate oil temperature prediction.
 
+---
 
-## Launch
+### Problem Setup
+- **Task:** Multivariate time-series regression  
+- **Input:** 11 features (including time indices and 8 measured variables)  
+- **Target:** Oil Temperature (OT) inside the transformer  
+- **Challenges:** Missing values, high dimensionality, and nonlinear temporal dependencies  
 
-We left campus at around 5AM to get to the launch site, and launched the balloon by 8AM. As soon as we launched, every team member hopped into the car to track the balloon on the ground. Ham radios and APRS (Automatic Packet Reporting System) were used. We roamed around the desert following the balloon around in hopes to be the first to catch the payload when it lands. 
-![alt text](/assets/images/recovery.jpeg "Recover")
+---
 
-{% include elements/video.html video_ids="lCmHNYg-FR0" %}
+### Approach Overview
+{% capture carousel_images %}
+/assets/images/ETT_forecast/slides/pipeline.png
+{% endcapture %}
+{% include elements/carousel.html carousel_id="ett-approach" carousel_images=carousel_images %}
 
-#### [Source Code](https://github.com/saehuihwang/cyclic_voltammetry)
+The project consists of two parallel pipelines:
+1. **Ensemble Model (XGBoost)** — regression using boosted decision trees  
+2. **Neural Network (PyTorch)** — regression using a fully-connected deep network  
 
-Here, a functional cyclic voltametry (CV) device is presented. A three-electrode electrochemical cell is composed of a working electrode, a reference electrode, and a counter electrode. The working principle of cyclic voltammetry is that a range of voltages is applied to a working electrode and the resulting current is measured. This current can tell us information about an electrochemical redox reaction. Oxidation occurs at the working electrode, reduction occurs at the counter electrode.
+Each model was trained and compared based on **Mean Squared Error (MSE)**, **feature impact**, and **temporal generalization**.
 
-Following conventional CV design, a triangle wave is applied at the working electrode and current flowing between the working and counter electrode is measured. By plotting the current vs applied potential, a traditional "duck plot" can be obtained.
+---
 
-![alt text](https://github.com/saehuihwang/cyclic_voltammetry/blob/main/media/CV_schematic_bb.png?raw=true)
+### 1. Ensemble Model (XGBoost)
+{% capture carousel_images %}
+/assets/images/ETT_forecast/slides/xgboost_param.png
+/assets/images/ETT_forecast/slides/xgboost_result.png
+{% endcapture %}
+{% include elements/carousel.html carousel_id="ett-xgb" carousel_images=carousel_images %}
 
-### Duck plots
+- Explored multiple XGBoost hyperparameters:
+  - `n_estimators`, `max_depth`, `learning_rate`, and `subsample`
+- Applied **feature engineering**:
+  - Time decomposition (hour, day, week)
+  - Rolling-window statistics (mean, variance)
+  - Normalization and missing value imputation
+- **Result:** Improved prediction stability and lower MSE compared to baseline  
+- **Key insight:** Properly tuned tree depth and subsample ratio improved temporal generalization while preventing overfitting.
 
-The Randles-Sevcik equation can be used to extract useful information about the electrochemical reaction. Detailed analysis can be found in the project report.
+*(Insert loss curve or feature importance plot here)*
 
-Below are some examples of duck plots with varying parameters such as scan rate and concentration.
+---
 
-![alt text](https://github.com/saehuihwang/cyclic_voltammetry/blob/main/media/scan_rate.png?raw=true)
-![alt text](https://github.com/saehuihwang/cyclic_voltammetry/blob/main/media/unknown_conc_calibration.png?raw=true)
+### 2. Neural Network Model
+{% capture carousel_images %}
+/assets/images/ETT_forecast/slides/nn_architecture.png
+/assets/images/ETT_forecast/slides/nn_loss.png
+{% endcapture %}
+{% include elements/carousel.html carousel_id="ett-nn" carousel_images=carousel_images %}
 
-### App & User Interface
+- Implemented in **PyTorch**  
+- Architecture:
+  - Input: 11-dimensional vector (features)
+  - Layers: MLP with dropout and ReLU activation  
+  - Output: 1 (predicted oil temperature)
+- Training details:
+  - Optimizer: Adam  
+  - Loss: MSELoss  
+  - Scheduler: StepLR  
+- Applied **hyperparameter tuning** on hidden size, learning rate, and batch size.  
+- **Result:** NN model achieved smoother long-term trend prediction but required more data and epochs to converge.  
 
-To run the app, run
+*(Insert training/validation loss curve here)*
 
-`bokeh serve --show cv_app.py`
+---
 
-On the command line.  
-The following user interface will show, displaying the scan rate adjusting sliders and a plotting interface
-![alt text](https://github.com/saehuihwang/cyclic_voltammetry/blob/main/media/UI.png?raw=true)
+### Comparison & Discussion
+| Model | Type | Best Test MSE ↓ | Strengths | Limitations |
+|:------|:------|:---------------:|:-----------|:-------------|
+| XGBoost | Ensemble (tree-based) | ~0.00X | Fast, interpretable, handles small data well | Limited temporal context |
+| NN (MLP) | Deep learning | ~0.00X | Learns complex temporal dependencies | Requires careful tuning and longer training |
+
+**Takeaway:**  
+XGBoost showed strong baseline performance with efficient training, while neural networks captured nonlinear interactions more effectively, suggesting potential improvement through hybrid models or temporal architectures (e.g., LSTM, Transformer).
+
+---
+
+### Future Work
+Potential extensions include:
+- Incorporating **sequence-aware architectures** (RNN, LSTM, Transformer).  
+- Applying **attention mechanisms** for temporal importance weighting.  
+- Building a **hybrid ensemble** combining tree-based and neural models for better stability.  
+
+---
+
+### Repository & Notebook
+📂 All implementation details are available in the Jupyter notebooks:  
+- [`final_project_1_ensemble.ipynb`](https://github.com/yourusername/forecasting-ett/blob/main/final_project_1_ensemble.ipynb)  
+- [`final_project_2_nn.ipynb`](https://github.com/yourusername/forecasting-ett/blob/main/final_project_2_nn.ipynb)
+
+*(Optional) Add a GIF or figure showing predictions vs ground truth curves here for visual comparison.*
