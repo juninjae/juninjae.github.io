@@ -4,11 +4,12 @@ tools: [Python, XGBoost, PyTorch, Time Series]
 image: /assets/images/ETT_forecast_thumbnail.png
 description: Forecasting transformer oil temperature using multivariate time-series regression with XGBoost and Neural Networks.
 ---
-# Forecasting ETT with Neural Network and XGBoost
 
+# Forecasting ETT with Neural Network and XGBoost
 A comparative study on **multivariate time-series forecasting** using the *Electricity Transformer Temperature (ETT)* dataset.  
 Implemented both ensemble-based regression (XGBoost) and deep learning models (Neural Networks) to predict transformer oil temperature (OT) based on 11 correlated sensor readings.  
-By redefining the target variable as **Δy (change in temperature)** instead of the absolute value, the model captured temporal dynamics more effectively and **achieved top 1% accuracy among 200 participants**.
+By redefining the target variable as **Δy (change in temperature)** instead of the absolute value, the model captured temporal dynamics more effectively and achieved <u>top 1% accuracy among 200 participants</u>.
+
 ---
 
 ### Background
@@ -22,19 +23,16 @@ The **ETT dataset** records two years of transformer operational data (2016–20
 It was modified for this project to include 11 features and artificial missing values to simulate real-world data imperfections.  
 The goal was to build models capable of learning **multivariate dependencies** and **temporal patterns** for accurate oil temperature prediction.
 
----
-
 ### Problem Setup
 - **Task:** Multivariate time-series regression  
 - **Input:** 11 features (including time indices and 8 measured variables)  
 - **Target:** Oil Temperature (OT) inside the transformer  
 - **Challenges:** Missing values, high dimensionality, and nonlinear temporal dependencies  
 
----
 
 ### Approach Overview
 {% capture carousel_images %}
-/assets/images/ETT_forecast/slides/pipeline.png
+/assets/images/ETT_forecast/slides/pipeline.svg
 {% endcapture %}
 {% include elements/carousel.html carousel_id="ett-approach" carousel_images=carousel_images %}
 
@@ -45,6 +43,14 @@ The project consists of two parallel pipelines:
 Each model was trained and compared based on **Mean Squared Error (MSE)**, **feature impact**, and **temporal generalization**.
 
 ---
+
+###  Feature Engineering
+{% capture carousel_images %}
+/assets/images/ETT_forecast/slides/feature_engineering.png
+{% endcapture %}
+{% include elements/carousel.html carousel_id="ett-feature" carousel_images=carousel_images %}
+
+
 
 ### 1. Ensemble Model (XGBoost)
 {% capture carousel_images %}

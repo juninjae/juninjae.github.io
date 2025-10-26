@@ -1,0 +1,224 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#357ABD;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7CB342;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#558B2F;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9C27B0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7B1FA2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF9800;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F57C00;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Arrow marker -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="600" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#2c3e50">
+    Time Series Forecasting Pipeline
+  </text>
+  
+  <!-- Stage 1: Raw Data -->
+  <rect x="50" y="80" width="200" height="100" rx="8" fill="url(#blueGrad)" stroke="#2980b9" stroke-width="2"/>
+  <text x="150" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+    Raw Data
+  </text>
+  <text x="150" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">
+    Train (50K samples)
+  </text>
+  <text x="150" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">
+    Test (5K samples)
+  </text>
+  
+  <!-- Arrow 1 -->
+  <line x1="250" y1="130" x2="320" y2="130" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Stage 2: Feature Engineering -->
+  <rect x="320" y="70" width="280" height="380" rx="8" fill="white" stroke="#34495e" stroke-width="3"/>
+  <text x="460" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2c3e50">
+    Feature Engineering
+  </text>
+  
+  <!-- FE Step 1 -->
+  <rect x="340" y="110" width="240" height="50" rx="5" fill="#E3F2FD" stroke="#2196F3" stroke-width="1.5"/>
+  <text x="460" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#1565C0">
+    1. Missing Value Imputation
+  </text>
+  <text x="460" y="148" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#424242">
+    Forward fill + Train mean
+  </text>
+  
+  <!-- FE Step 2 -->
+  <rect x="340" y="170" width="240" height="50" rx="5" fill="#F3E5F5" stroke="#9C27B0" stroke-width="1.5"/>
+  <text x="460" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#6A1B9A">
+    2. Lag Features
+  </text>
+  <text x="460" y="208" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#424242">
+    y(t-1), y(t-2), y_diff
+  </text>
+  
+  <!-- FE Step 3 -->
+  <rect x="340" y="230" width="240" height="50" rx="5" fill="#FFF3E0" stroke="#FF9800" stroke-width="1.5"/>
+  <text x="460" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#E65100">
+    3. Residual Target
+  </text>
+  <text x="460" y="268" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#424242">
+    y_residual = y(t) - y(t-1)
+  </text>
+  
+  <!-- FE Step 4 -->
+  <rect x="340" y="290" width="240" height="50" rx="5" fill="#E8F5E9" stroke="#4CAF50" stroke-width="1.5"/>
+  <text x="460" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#2E7D32">
+    4. Feature Transformations
+  </text>
+  <text x="460" y="328" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#424242">
+    Log-scale, Moving Average (w=5)
+  </text>
+  
+  <!-- FE Step 5 -->
+  <rect x="340" y="350" width="240" height="50" rx="5" fill="#FCE4EC" stroke="#E91E63" stroke-width="1.5"/>
+  <text x="460" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#C2185B">
+    5. Cyclic Encoding
+  </text>
+  <text x="460" y="388" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#424242">
+    Sin/Cos for day_of_week, hour
+  </text>
+  
+  <!-- FE Step 6 -->
+  <rect x="340" y="410" width="240" height="30" rx="5" fill="#FFEBEE" stroke="#F44336" stroke-width="1.5"/>
+  <text x="460" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#C62828">
+    6. Outlier Treatment
+  </text>
+  
+  <!-- Arrow 2 -->
+  <line x1="600" y1="240" x2="670" y2="240" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Stage 3: Processed Features -->
+  <rect x="670" y="80" width="200" height="100" rx="8" fill="url(#greenGrad)" stroke="#558B2F" stroke-width="2"/>
+  <text x="770" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+    Engineered Data
+  </text>
+  <text x="770" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">
+    ~35 features
+  </text>
+  <text x="770" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">
+    Target: y_residual
+  </text>
+  
+  <!-- Split arrows -->
+  <line x1="770" y1="180" x2="770" y2="280" stroke="#333" stroke-width="2"/>
+  <line x1="770" y1="280" x2="600" y2="470" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="770" y1="280" x2="940" y2="470" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Model 1: XGBoost -->
+  <rect x="450" y="470" width="200" height="120" rx="8" fill="url(#purpleGrad)" stroke="#6A1B9A" stroke-width="2"/>
+  <text x="550" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+    XGBoost Ensemble
+  </text>
+  <text x="550" y="525" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+    • n_estimators: 1000
+  </text>
+  <text x="550" y="545" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+    • learning_rate: 0.01
+  </text>
+  <text x="550" y="565" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+    • max_depth: 8
+  </text>
+  
+  <!-- Model 2: Neural Network -->
+  <rect x="840" y="470" width="200" height="120" rx="8" fill="url(#orangeGrad)" stroke="#E65100" stroke-width="2"/>
+  <text x="940" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+    Deep Neural Net
+  </text>
+  <text x="940" y="525" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+    • PyTorch
+  </text>
+  <text x="940" y="545" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+    • Fully-connected
+  </text>
+  <text x="940" y="565" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+    • Regression head
+  </text>
+  
+  <!-- Prediction arrows -->
+  <line x1="550" y1="590" x2="550" y2="630" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="940" y1="590" x2="940" y2="630" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Predictions -->
+  <rect x="450" y="630" width="200" height="60" rx="8" fill="#E1BEE7" stroke="#8E24AA" stroke-width="2"/>
+  <text x="550" y="655" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#4A148C">
+    Residual Predictions
+  </text>
+  <text x="550" y="675" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#6A1B9A">
+    ŷ_residual (XGBoost)
+  </text>
+  
+  <rect x="840" y="630" width="200" height="60" rx="8" fill="#FFE0B2" stroke="#EF6C00" stroke-width="2"/>
+  <text x="940" y="655" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#BF360C">
+    Residual Predictions
+  </text>
+  <text x="940" y="675" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#E65100">
+    ŷ_residual (NN)
+  </text>
+  
+  <!-- Merge arrows -->
+  <line x1="550" y1="690" x2="645" y2="720" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="940" y1="690" x2="845" y2="720" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Stage 4: Inverse Transform -->
+  <rect x="620" y="720" width="260" height="80" rx="8" fill="#263238" stroke="#455A64" stroke-width="2"/>
+  <text x="750" y="750" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+    Inverse Transformation
+  </text>
+  <text x="750" y="775" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#B0BEC5">
+    ŷ(t) = ŷ_residual + y(t-1)
+  </text>
+  
+  <!-- Arrow to final output -->
+  <line x1="880" y1="760" x2="950" y2="760" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Final Output -->
+  <rect x="950" y="730" width="200" height="60" rx="8" fill="#1B5E20" stroke="#2E7D32" stroke-width="2"/>
+  <text x="1050" y="760" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="white">
+    Final Predictions: ŷ(t)
+  </text>
+  
+  <!-- Legend Box -->
+  <rect x="50" y="520" width="320" height="200" rx="8" fill="white" stroke="#95a5a6" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="210" y="545" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">
+    Key Innovations
+  </text>
+  
+  <text x="70" y="570" font-family="Arial, sans-serif" font-size="12" fill="#34495e">
+    ✓ Residual modeling: y_residual = y(t) - y(t-1)
+  </text>
+  <text x="70" y="595" font-family="Arial, sans-serif" font-size="12" fill="#34495e">
+    ✓ Meta-model for test lag initialization
+  </text>
+  <text x="70" y="620" font-family="Arial, sans-serif" font-size="12" fill="#34495e">
+    ✓ Comprehensive feature engineering
+  </text>
+  <text x="70" y="645" font-family="Arial, sans-serif" font-size="12" fill="#34495e">
+    ✓ Parallel ensemble and deep learning
+  </text>
+  <text x="70" y="670" font-family="Arial, sans-serif" font-size="12" fill="#34495e">
+    ✓ Cyclic encoding for temporal patterns
+  </text>
+  <text x="70" y="695" font-family="Arial, sans-serif" font-size="12" fill="#34495e">
+    ✓ MSE-optimized hyperparameters
+  </text>
+</svg>
