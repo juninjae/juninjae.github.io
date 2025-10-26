@@ -2,30 +2,18 @@
 title: "KSAE Student Competition"
 date: 2020-08-08
 image: /assets/images/life/RTY/thumbnail.jpg
-images:
-  - /assets/images/life/RTY/thumbnail.jpg
-  - /assets/images/life/RTY/image1.png
-  - /assets/images/life/RTY/video1.mp4
-  - /assets/images/life/RTY/image2.jpg
-  - /assets/images/life/RTY/image3.jpg
 ---
 
-<!-- Image/Video Carousel -->
-{% if page.images %}
-<div class="mb-4">
-  {% capture carousel_images %}{% for image in page.images %}{{ image }}
-{% endfor %}{% endcapture %}
-  {% assign post_id = page.path | split: "/" | last | split: "." | first %}
-  {% include elements/carousel.html carousel_id="life-{{ post_id }}" carousel_images=carousel_images %}
-</div>
-{% endif %}
+{% capture carousel_images %}
+/assets/images/life/RTY/thumbnail.jpg
+/assets/images/life/RTY/image1.png
+/assets/images/life/RTY/video1.mp4
+/assets/images/life/RTY/image2.jpg
+/assets/images/life/RTY/image3.jpg
+{% endcapture %}
+{% include elements/carousel.html carousel_id="ksae-gallery" carousel_images=carousel_images %}
 
-<!-- Date -->
-<div class="mb-3">
-  <p class="text-muted">
-    <i class="fas fa-calendar-alt"></i> {{ page.date | date: "%B %d, %Y" }}
-  </p>
-</div>
+**Date:** {{ page.date | date: "%B %d, %Y" }}
 
 Participated in the National Student Automobile Competition (KSAE) with our dedicated team. After months of intensive preparation and hard work from all team members, we successfully completed our vehicle design and testing.
 
