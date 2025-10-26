@@ -1,0 +1,21 @@
+<div class="wow animated fadeIn" data-wow-delay=".15s">
+  <a
+    href="{{ life_url }}"
+    class="project card text-themed"
+  >
+    {%- if life_img -%}
+    <img
+      id="{{ life_id }}-img"
+      class="card-img-top"
+      src="{{ life_img }}"
+      alt="{{ life_name }}"
+    />
+    {%- endif -%}
+    <div class="card-body">
+      <h5 id="{{ life_id }}-name" class="card-title">{{ life_name }}</h5>
+      <p id="{{ life_id }}-date" class="card-text text-muted">
+        <i class="fas fa-calendar-alt"></i> {{ life_date | date: "%B %d, %Y" }}
+      </p>
+    </div>
+  </a>
+</div>

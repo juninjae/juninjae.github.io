@@ -43,7 +43,7 @@ collections:
     output: true
     permalink: /projects/:name
   life:
-    output: false
+    output: true
     permalink: /life/:name
   elements: # For Documentation Only
     output: true # For Documentation Only
