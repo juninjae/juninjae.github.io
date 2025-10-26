@@ -42,6 +42,9 @@ collections:
   projects:
     output: true
     permalink: /projects/:name
+  life:
+    output: true
+    permalink: /life/:name
   elements: # For Documentation Only
     output: true # For Documentation Only
   posts:
@@ -73,6 +76,11 @@ defaults:
       type: "projects"
     values:
       layout: "page"
+  - scope:
+      path: ""
+      type: "life"
+    values:
+      layout: "life-post"
   - scope: # For Documentation Only
       path: "" # For Documentation Only
       type: "elements" # For Documentation Only

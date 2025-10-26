@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<div class="col-lg-10 mx-auto mt-0 markdown-body">
+  <div class="life-post-header mb-4">
+    <h2>{{ page.title }}</h2>
+    <p class="text-muted">{{ page.date | date: "%B %d, %Y" }}</p>
+  </div>
+
+  <!-- Image Carousel -->
+  {% if page.images %}
+  <div class="mb-4">
+    {% capture carousel_images %}
+    {% for image in page.images %}{{ image }}
+    {% endfor %}
+    {% endcapture %}
+    {% include elements/carousel.html carousel_id="life-{{ page.slug }}" carousel_images=carousel_images %}
+  </div>
+  {% endif %}
+
+  <!-- Description -->
+  <div class="life-post-content">
+    {{ content }}
+  </div>
+
+  <!-- Back to Life button -->
+  <div class="mt-4">
+    <a href="/life/" class="btn btn-outline-primary">
+      <i class="fas fa-arrow-left"></i> Back to Life
+    </a>
+  </div>
+</div>
+
+<style>
+.life-post-header h2 {
+  margin-bottom: 0.5rem;
+}
+
+.life-post-content {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+</style>
