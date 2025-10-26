@@ -11,11 +11,10 @@ layout: default
   <!-- Image Carousel -->
   {% if page.images %}
   <div class="mb-4">
-    {% capture carousel_images %}
-    {% for image in page.images %}{{ image }}
-    {% endfor %}
-    {% endcapture %}
-    {% include elements/carousel.html carousel_id="life-{{ page.slug }}" carousel_images=carousel_images %}
+    {% capture carousel_images %}{% for image in page.images %}{{ image }}
+{% endfor %}{% endcapture %}
+    {% assign post_id = page.path | split: "/" | last | split: "." | first %}
+    {% include elements/carousel.html carousel_id="life-{{ post_id }}" carousel_images=carousel_images %}
   </div>
   {% endif %}
 

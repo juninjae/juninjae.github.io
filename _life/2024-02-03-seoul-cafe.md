@@ -1,4 +1,5 @@
 ---
+layout: life-post
 title: "Cozy Cafe in Seoul"
 date: 2024-02-03
 thumbnail: /assets/images/life/cafe/thumbnail.jpg

@@ -80,7 +80,7 @@ defaults:
       path: ""
       type: "life"
     values:
-      layout: "life-post"
+      layout: "page"
   - scope: # For Documentation Only
       path: "" # For Documentation Only
       type: "elements" # For Documentation Only

@@ -1,4 +1,5 @@
 ---
+layout: life-post
 title: "Mountain Hiking Adventure"
 date: 2024-01-15
 thumbnail: /assets/images/life/hiking/thumbnail.jpg
