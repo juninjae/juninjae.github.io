@@ -1,4 +1,4 @@
-<div class="card-columns m-3 mt-5">
+<div class="life-grid m-3 mt-5">
   <!-- Life Posts -->
   {% for life_post in site.life %}
   {%- assign life_url = life_post.url | relative_url -%}
@@ -9,3 +9,66 @@
   {%- include life/life-card.html -%}
   {% endfor %}
 </div>
+
+<style>
+/* Life 전용 스타일 - Projects에 영향 없음 */
+.life-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 0;
+}
+
+.life-card-container {
+  width: 100%;
+}
+
+.life-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: white;
+  border: none;
+  border-radius: 0;
+  overflow: hidden;
+  height: 400px;
+  transition: none;
+}
+
+.life-card:hover {
+  text-decoration: none;
+  color: inherit;
+  transform: none;
+  box-shadow: none;
+}
+
+.life-card-img-top {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.life-card-body {
+  padding: 15px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.life-card-text {
+  margin: 0;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Dark theme support */
+[data-theme="dark"] .life-card {
+  background: #2d3748;
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .life-card-text {
+  color: #a0aec0;
+}
+</style>
