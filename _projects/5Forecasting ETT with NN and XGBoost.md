@@ -44,11 +44,10 @@ Each model was trained and compared based on **Mean Squared Error (MSE)**, **fea
 
 ---
 
-###  Feature Engineering
-{% capture carousel_images %}
-/assets/images/ETT_forecast/slides/feature_engineering.png
-{% endcapture %}
-{% include elements/carousel.html carousel_id="ett-feature" carousel_images=carousel_images %}
+###  0. 제목?
+사진 없음
+설명
+
 
 
 
