@@ -1,6 +1,6 @@
 ---
-title: "Discharge Day - HongKong (207th Aviation Bn.)"
-date: 2023-09-20
+title: "HongKong"
+date: 2025-02-02
 image: /assets/images/life/HongKong/thumbnail.jpg
 ---
 

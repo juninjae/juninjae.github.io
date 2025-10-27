@@ -1,6 +1,6 @@
 ---
 title: "Discharge Day - Taiwan (207th Aviation Bn.)"
-date: 2023-09-20
+date: 2025-02-07
 image: /assets/images/life/Taiwan/thumbnail.jpg
 ---
 
