@@ -7,12 +7,76 @@
 @import "variables", "404", "base", "blog", "footer", "landing", "navbar",
   "markdown", "projects", "timeline", "autumn", "theme", "theme-dark";
 
+// Carousel - Fixed Height Layout
+.carousel-fixed-height {
+  position: relative;
+  width: 100%;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.carousel-fixed-height .carousel-inner {
+  height: 100%;
+}
+
+.carousel-fixed-height .carousel-item {
+  height: 100%;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-fixed-height .carousel-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+// Carousel - Fixed Arrow Position
+.carousel-fixed-height .carousel-control-prev,
+.carousel-fixed-height .carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  opacity: 0.9;
+  z-index: 10;
+}
+
+.carousel-fixed-height .carousel-control-prev {
+  left: 15px;
+}
+
+.carousel-fixed-height .carousel-control-next {
+  right: 15px;
+}
+
+.carousel-fixed-height .carousel-control-prev:hover,
+.carousel-fixed-height .carousel-control-next:hover {
+  background-color: rgba(255, 255, 255, 1);
+  opacity: 1;
+}
+
 .carousel-control-prev-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23212529' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
 }
 
 .carousel-control-next-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23212529' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+
+// Carousel - Indicators
+.carousel-indicators {
+  bottom: 10px !important;
+  z-index: 15;
 }
 
 .carousel-indicators li {

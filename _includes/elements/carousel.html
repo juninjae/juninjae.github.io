@@ -1,8 +1,9 @@
 {%- assign carousel_id = include.carousel_id | default: "carouselExample" -%}
 {%- assign images = include.carousel_images | strip | newline_to_br | split:
 '<br />' -%}
+{%- assign carousel_height = include.height | default: "500px" -%}
 
-<div id="{{ carousel_id }}" class="carousel slide" data-ride="false" data-interval="false">
+<div id="{{ carousel_id }}" class="carousel slide carousel-fixed-height" data-ride="false" data-interval="false">
   <ol class="carousel-indicators">
     {% for image in images %} {%- if forloop.first -%}
     <li
@@ -21,11 +22,11 @@
   <div class="carousel-inner">
     {% for image in images %} {%- if forloop.first -%}
     <div class="carousel-item active">
-      <img src="{{ image }}" class="d-block w-100" />
+      <img src="{{ image }}" class="carousel-img" />
     </div>
     {%- else -%}
     <div class="carousel-item">
-      <img src="{{ image }}" class="d-block w-100" />
+      <img src="{{ image }}" class="carousel-img" />
     </div>
     {%- endif -%} {% endfor %}
   </div>
@@ -52,6 +53,10 @@
 </div>
 
 <style>
+#{{ carousel_id }} {
+  height: {{ carousel_height }};
+}
+
 #{{ carousel_id }} .carousel-control-prev-icon,
 #{{ carousel_id }} .carousel-control-next-icon {
   filter: brightness(0) saturate(100%) invert(58%) sepia(69%) saturate(2142%) hue-rotate(202deg) brightness(103%) contrast(101%);
