@@ -20,11 +20,19 @@
   height: 100%;
 }
 
+// Hide non-active items (Bootstrap default behavior)
 .carousel-fixed-height .carousel-item {
+  display: none;
   height: 100%;
-  display: flex !important;
   align-items: center;
   justify-content: center;
+}
+
+// Show active item and transitioning items
+.carousel-fixed-height .carousel-item.active,
+.carousel-fixed-height .carousel-item-next,
+.carousel-fixed-height .carousel-item-prev {
+  display: flex !important;
 }
 
 .carousel-fixed-height .carousel-img {

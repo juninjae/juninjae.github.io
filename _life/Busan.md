@@ -8,8 +8,10 @@ image: /assets/images/life/Busan/thumbnail.jpg
 /assets/images/life/Busan/thumbnail.jpg
 /assets/images/life/Busan/image1.jpg
 /assets/images/life/Busan/image2.jpg
-/assets/images/life/Busan/gif1.gif
 /assets/images/life/Busan/image3.jpg
+/assets/images/life/Busan/image4.jpg
+/assets/images/life/Busan/image5.jpg
+/assets/images/life/Busan/image6.jpg
 {% endcapture %}
 {% include elements/carousel.html carousel_id="Busan-trip" carousel_images=carousel_images %}
 

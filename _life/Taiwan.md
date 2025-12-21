@@ -16,7 +16,6 @@ image: /assets/images/life/Taiwan/thumbnail.jpg
 /assets/images/life/Taiwan/image6.jpg
 /assets/images/life/Taiwan/image7.jpg
 /assets/images/life/Taiwan/image8.jpg
-/assets/images/life/Taiwan/gif1.gif
 {% endcapture %}
 {% include elements/carousel.html carousel_id="Taiwan" carousel_images=carousel_images %}
 
