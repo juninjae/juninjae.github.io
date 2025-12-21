@@ -5,13 +5,13 @@ image: /assets/images/life/COSS/thumbnail.jpg
 ---
 
 {% capture carousel_images %}
-/assets/images/life/2025KRoC/thumbnail.jpg
-/assets/images/life/2025KRoC/image1.jpg
-/assets/images/life/2025KRoC/image2.jpg
-/assets/images/life/2025KRoC/image3.jpg
-/assets/images/life/2025KRoC/image4.jpg
-/assets/images/life/2025KRoC/image5.jpg
-/assets/images/life/2025KRoC/image6.jpg
+/assets/images/life/COSS/thumbnail.jpg
+/assets/images/life/COSS/image1.jpg
+/assets/images/life/COSS/image2.jpg
+/assets/images/life/COSS/image3.jpg
+/assets/images/life/COSS/image4.jpg
+/assets/images/life/COSS/image5.jpg
+/assets/images/life/COSS/image6.jpg
 {% endcapture %}
 {% include elements/carousel.html carousel_id="COSS" carousel_images=carousel_images %}
 
