@@ -11,9 +11,17 @@
 .carousel-fixed-height {
   position: relative;
   width: 100%;
-  background-color: #f8f9fa;
   border-radius: 8px;
   overflow: hidden;
+}
+
+// Carousel background color for light/dark mode
+[data-theme="light"] .carousel-fixed-height {
+  background-color: #ffffff; // white (page background in light mode)
+}
+
+[data-theme="dark"] .carousel-fixed-height {
+  background-color: #17191a; // $dark-900 (page background in dark mode)
 }
 
 .carousel-fixed-height .carousel-inner {
@@ -53,7 +61,6 @@
   transform: translateY(-50%);
   width: 50px;
   height: 50px;
-  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 50%;
   opacity: 0.9;
   z-index: 10;
@@ -67,18 +74,46 @@
   right: 15px;
 }
 
-.carousel-fixed-height .carousel-control-prev:hover,
-.carousel-fixed-height .carousel-control-next:hover {
+// Arrow button colors for light mode
+[data-theme="light"] .carousel-fixed-height .carousel-control-prev,
+[data-theme="light"] .carousel-fixed-height .carousel-control-next {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="light"] .carousel-fixed-height .carousel-control-prev:hover,
+[data-theme="light"] .carousel-fixed-height .carousel-control-next:hover {
   background-color: rgba(255, 255, 255, 1);
   opacity: 1;
 }
 
-.carousel-control-prev-icon {
+// Arrow button colors for dark mode
+[data-theme="dark"] .carousel-fixed-height .carousel-control-prev,
+[data-theme="dark"] .carousel-fixed-height .carousel-control-next {
+  background-color: rgba(50, 50, 50, 0.8);
+}
+
+[data-theme="dark"] .carousel-fixed-height .carousel-control-prev:hover,
+[data-theme="dark"] .carousel-fixed-height .carousel-control-next:hover {
+  background-color: rgba(70, 70, 70, 1);
+  opacity: 1;
+}
+
+// Arrow icons for light mode (dark arrows)
+[data-theme="light"] .carousel-control-prev-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23212529' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
 }
 
-.carousel-control-next-icon {
+[data-theme="light"] .carousel-control-next-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23212529' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+
+// Arrow icons for dark mode (light arrows)
+[data-theme="dark"] .carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+
+[data-theme="dark"] .carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
 }
 
 // Carousel - Indicators
@@ -87,7 +122,8 @@
   z-index: 15;
 }
 
-.carousel-indicators li {
+// Indicators for light mode
+[data-theme="light"] .carousel-indicators li {
   background-color: #212529 !important;
   width: 12px !important;
   height: 12px !important;
@@ -96,7 +132,22 @@
   opacity: 0.5 !important;
 }
 
-.carousel-indicators .active {
+[data-theme="light"] .carousel-indicators .active {
+  opacity: 1 !important;
+  background-color: #007bff !important;
+}
+
+// Indicators for dark mode
+[data-theme="dark"] .carousel-indicators li {
+  background-color: #ffffff !important;
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  margin: 0 4px !important;
+  opacity: 0.5 !important;
+}
+
+[data-theme="dark"] .carousel-indicators .active {
   opacity: 1 !important;
   background-color: #007bff !important;
 }
